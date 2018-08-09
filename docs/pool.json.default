@@ -5,21 +5,21 @@
 
 	"proxy": {
 		"enabled": true,
-		"listen": "0.0.0.0:19998",
+		"listen": "0.0.0.0:8888",
 		"limitHeadersSize": 1024,
 		"limitBodySize": 256,
 		"behindReverseProxy": false,
-		"blockRefreshInterval": "120ms",
+		"blockRefreshInterval": "1s",
 		"stateUpdateInterval": "3s",
-		"difficulty": 30000,
+		"difficulty": 2500000,
 		"hashrateExpiration": "3h",
 
 		"healthCheck": true,
 		"maxFails": 100,
 
 		"stratum": {
-			"enabled": true,
-			"listen": "0.0.0.0:19999",
+			"enabled": false,
+			"listen": "0.0.0.0:8987",
 			"timeout": "120s",
 			"maxConn": 8192
 		},
@@ -30,10 +30,10 @@
 			"refreshInterval": "1m",
 
 			"banning": {
-				"enabled": false,
+				"enabled": true,
 				"ipset": "blacklist",
 				"timeout": 1800,
-				"invalidPercent": 30,
+				"invalidPercent": 40,
 				"checkThreshold": 30,
 				"malformedLimit": 5
 			},
@@ -50,7 +50,7 @@
 		"enabled": true,
 		"purgeOnly": false,
 		"purgeInterval": "10m",
-		"listen": "0.0.0.0:8080",
+		"listen": "0.0.0.0:8081",
 		"statsCollectInterval": "5s",
 		"hashrateWindow": "30m",
 		"hashrateLargeWindow": "3h",
@@ -68,7 +68,7 @@
 		},
 		{
 			"name": "backup",
-			"url": "http://127.0.0.2:8543",
+			"url": "http://127.0.0.1:8543",
 			"timeout": "10s"
 		}
 	],
@@ -76,15 +76,15 @@
 	"redis": {
 		"endpoint": "127.0.0.1:6379",
 		"poolSize": 10,
-		"database": 0,
+		"database": 2,
 		"password": ""
 	},
 
 	"unlocker": {
 		"enabled": false,
 		"poolFee": 1.0,
-		"poolFeeAddress": "0x3317e8405e75551ec7eeeb3508650e7b349665ff",
-		"donate": true,
+		"poolFeeAddress": "",
+		"donate": false,
 		"depth": 120,
 		"immatureDepth": 20,
 		"keepTxFees": false,
@@ -95,11 +95,11 @@
 
 	"payouts": {
 		"enabled": false,
-		"requirePeers": 5,
+		"requirePeers": 8,
 		"interval": "10m",
 		"daemon": "http://127.0.0.1:8543",
 		"timeout": "10s",
-		"address": "0x394c1b17faa1198b45fc001264e3e0e4f3585113",
+		"address": "",
 		"gas": "21000",
 		"gasPrice": "10000000000",
 		"autoGas": true,
